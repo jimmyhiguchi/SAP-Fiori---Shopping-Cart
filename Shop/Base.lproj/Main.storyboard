@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KKQ-1F-uqg">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="K0Y-TN-0p8">
+            <objects>
+                <navigationController id="KKQ-1F-uqg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wHB-oD-guM" customClass="FUINavigationBar" customModule="SAPFiori">
+                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NpQ-7m-GjU" kind="relationship" relationship="rootViewController" id="KE1-Hl-Zwb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="poM-cO-Ys5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-201" y="58"/>
+        </scene>
+        <!--Shop-->
+        <scene sceneID="Vde-wx-7VV">
+            <objects>
+                <viewController id="NpQ-7m-GjU" customClass="ProductListViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bbm-ys-8LI"/>
+                        <viewControllerLayoutGuide type="bottom" id="bQd-v5-43G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c4Q-FR-SHD">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C0H-5O-yXk">
+                                <rect key="frame" x="0.0" y="108" width="1024" height="616"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCellID" id="uUX-kL-rvX" customClass="FUIObjectTableViewCell" customModule="SAPFiori">
+                                        <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uUX-kL-rvX" id="jnD-c1-KYD">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="wQf-N4-kCs" kind="show" identifier="showProductDetailSegue" id="1Sr-Rg-GCU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="NpQ-7m-GjU" id="Y7r-qa-3Iw"/>
+                                    <outlet property="delegate" destination="NpQ-7m-GjU" id="2ZQ-VY-Cnv"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGJ-X5-1d1">
+                                <rect key="frame" x="0.0" y="64" width="1024" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="89E-eU-c18"/>
+                                </constraints>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cmx-S2-Uma">
+                                <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="OX4-dS-1sm"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Filter" id="6yI-Ku-x5t">
+                                        <connections>
+                                            <segue destination="cAp-sx-QJN" kind="popoverPresentation" identifier="showFilter" popoverAnchorBarButtonItem="6yI-Ku-x5t" id="wSU-IS-zn7">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zaj-9d-gh2"/>
+                                    <barButtonItem title="Count" id="dUU-ss-iAO"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="FBy-3f-Tan"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bQd-v5-43G" firstAttribute="top" secondItem="Cmx-S2-Uma" secondAttribute="bottom" id="1Jj-ap-Aee"/>
+                            <constraint firstAttribute="trailing" secondItem="WGJ-X5-1d1" secondAttribute="trailing" id="8A4-aQ-0km"/>
+                            <constraint firstItem="Cmx-S2-Uma" firstAttribute="leading" secondItem="c4Q-FR-SHD" secondAttribute="leading" id="FWQ-sW-eGy"/>
+                            <constraint firstItem="C0H-5O-yXk" firstAttribute="top" secondItem="WGJ-X5-1d1" secondAttribute="bottom" id="G6P-Tz-8ov"/>
+                            <constraint firstAttribute="trailing" secondItem="C0H-5O-yXk" secondAttribute="trailing" id="KjE-26-Igs"/>
+                            <constraint firstAttribute="trailing" secondItem="Cmx-S2-Uma" secondAttribute="trailing" id="Na9-5x-uEP"/>
+                            <constraint firstItem="C0H-5O-yXk" firstAttribute="top" secondItem="WGJ-X5-1d1" secondAttribute="bottom" id="W4i-6d-8Cx"/>
+                            <constraint firstItem="C0H-5O-yXk" firstAttribute="leading" secondItem="c4Q-FR-SHD" secondAttribute="leading" id="fta-Ye-GKE"/>
+                            <constraint firstItem="WGJ-X5-1d1" firstAttribute="top" secondItem="bbm-ys-8LI" secondAttribute="bottom" id="hgl-sV-CRc"/>
+                            <constraint firstItem="WGJ-X5-1d1" firstAttribute="leading" secondItem="c4Q-FR-SHD" secondAttribute="leading" id="nnZ-lx-vQv"/>
+                            <constraint firstItem="Cmx-S2-Uma" firstAttribute="top" secondItem="C0H-5O-yXk" secondAttribute="bottom" id="xIL-1i-Ofq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Shop" id="msm-GW-P17">
+                        <barButtonItem key="rightBarButtonItem" id="FgY-ke-JVy">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xky-uT-34h" customClass="ShoppingCartButton" customModule="Shop" customModuleProvider="target">
+                                <rect key="frame" x="964" y="4.5" width="40" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="yeg-zz-On9" kind="presentation" modalPresentationStyle="formSheet" id="0rG-US-oHp"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="filterButton" destination="6yI-Ku-x5t" id="Mfn-vR-JE4"/>
+                        <outlet property="productCountBarButton" destination="dUU-ss-iAO" id="yiX-zb-lSq"/>
+                        <outlet property="searchBarContainer" destination="WGJ-X5-1d1" id="Q3q-GF-5c1"/>
+                        <outlet property="tableView" destination="C0H-5O-yXk" id="aIX-tL-Mc8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T16-KF-ppF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="457.61718749999994" y="19.53125"/>
+        </scene>
+        <!--ShoppingCart-->
+        <scene sceneID="1kK-j0-IGi">
+            <objects>
+                <viewController title="ShoppingCart" id="y61-Jv-IXA" customClass="ShoppingCartViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P4h-Wa-Vbi"/>
+                        <viewControllerLayoutGuide type="bottom" id="obf-GO-PkH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a2t-gZ-4ZV" customClass="WorklistView" customModule="Shop" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Shopping Cart" id="b2D-lT-8eu">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="wNE-LT-uca">
+                            <connections>
+                                <action selector="didTapClose:" destination="y61-Jv-IXA" id="R8T-CS-2Hg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Checkout" id="MXi-lN-gxw">
+                            <connections>
+                                <action selector="didTapCheckout:" destination="y61-Jv-IXA" id="R4n-DZ-GOE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="checkoutButton" destination="MXi-lN-gxw" id="hRl-0u-5eL"/>
+                        <outlet property="worklist" destination="a2t-gZ-4ZV" id="5PN-oe-9bn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L13-C4-o8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136" y="911"/>
+        </scene>
+        <!--Product-->
+        <scene sceneID="4NU-Yy-KOb">
+            <objects>
+                <viewController title="Product" id="wQf-N4-kCs" customClass="DetailViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CoU-DO-PKq"/>
+                        <viewControllerLayoutGuide type="bottom" id="P7x-3j-JE6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eZ7-Bt-Reo" customClass="ProductDetailView" customModule="Shop" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Product" id="Q0e-dH-7Zl">
+                        <barButtonItem key="rightBarButtonItem" id="asc-iI-oQ9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xy4-la-1Oq" customClass="ShoppingCartButton" customModule="Shop" customModuleProvider="target">
+                                <rect key="frame" x="964" y="4.5" width="40" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title=" "/>
+                                <connections>
+                                    <segue destination="yeg-zz-On9" kind="presentation" modalPresentationStyle="formSheet" id="LFM-lA-TIp"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="productView" destination="eZ7-Bt-Reo" id="QNE-dc-tUw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zkG-Nd-Cgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136" y="20"/>
+        </scene>
+        <!--Filter-->
+        <scene sceneID="whf-yq-02W">
+            <objects>
+                <tableViewController title="Filter" id="fxk-fg-Oy6" customClass="FilterViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6bX-Jr-2rH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="fxk-fg-Oy6" id="QnS-SL-grL"/>
+                            <outlet property="delegate" destination="fxk-fg-Oy6" id="8j9-QL-g91"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Filter" id="h3N-Fd-U5f">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="TCR-un-aFZ">
+                            <connections>
+                                <action selector="cancelFilter:" destination="fxk-fg-Oy6" id="YJe-Bc-aJJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="LxZ-NG-2b4">
+                            <connections>
+                                <action selector="applyFilter:" destination="fxk-fg-Oy6" id="tLe-Mp-AkZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3h-se-4Vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-322" y="911"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="J6a-oy-aiA">
+            <objects>
+                <navigationController id="cAp-sx-QJN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="erT-ps-Sad" customClass="FUINavigationBar" customModule="SAPFiori">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fxk-fg-Oy6" kind="relationship" relationship="rootViewController" id="kbK-cU-lyn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfI-7J-kZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-979" y="911"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Il-qN-6K9">
+            <objects>
+                <navigationController id="yeg-zz-On9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mZJ-zI-Kp9">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="y61-Jv-IXA" kind="relationship" relationship="rootViewController" id="y4v-19-fvG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cT4-KQ-uDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="417" y="877"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0rG-US-oHp"/>
+    </inferredMetricsTieBreakers>
+</document>
